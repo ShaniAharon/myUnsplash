@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+
+}
+
+button{
+    cursor: pointer;
+}
+label{
+    cursor: pointer;
+}
+
+
+html {
+//    font-family: Montserrat; 
+//    font-family: GreatVibes; 
+   font-family: Opensans, sans-serif;  
+   color: $clr2;
+   line-height: 1.8;
+}
+
+
+
+body {
+    margin: 0;
+    background-size: 400px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;
+}
+
+ul{
+    list-style: none;
+}
+
+
+img {
+    width: 100%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
+
+p {
+    // margin: 0 0 1rem;
+    max-width: 60ch;
+}
+
+// section[class*="wap"]{
+//     position: relative;
+// } 
+
+[contenteditable] {
+    outline: 1px solid transparent;
+    outline-offset: 6px
+
+  }
+
+  
+[contenteditable]:hover {
+    outline:dashed 2px rgba(192, 192, 192, 0.993);
+    outline-offset: 6px
+
+  }

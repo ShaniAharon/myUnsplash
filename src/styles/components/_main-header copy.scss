@@ -1,0 +1,19 @@
+header.main-header {
+    min-height: 90vh;
+    // display: flex;
+    
+    justify-items: center;
+    align-content: center;
+
+    background: linear-gradient(to bottom, $clr5 0%,$clr5 80%, rgba($clr5, 0) 100%);
+
+    .logo {
+        max-width: 260px;
+        transform: rotate(-11deg);
+        mix-blend-mode: multiply;
+        
+        @include for-narrow-layout {
+            max-width: 356px;
+        }
+    }
+}
