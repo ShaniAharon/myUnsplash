@@ -1,32 +1,18 @@
 
 // COLOR PALETTE
-$clr1: #ce2e6c;
-$clr3: #ffb5b5;
-$clr2: #504658;
-$clr4: #f0decb;
-$clr5: rgb(255, 255, 255);
-$White: rgb(255, 255, 255);
-
-$Dark-Blue-intro-and-email-sign-up-bg : hsl(217, 28%, 15%);
-$Dark-Blue-main-bg : hsl(218, 28%, 13%);
-$Dark-Blue-footer-bg : hsl(216, 53%, 9%);
-$Dark-Blue-testimonial-bg : hsl(219, 30%, 18%);
-
-// ### Accent
-
-$Cyan : hsl(176, 68%, 64%); //(inside call-to-action gradient)
-$Blue : hsl(198, 60%, 50%); //(inside call-to-action gradient)
-$Light-Red : hsl(0, 100%, 63%); //(error)
-
-
+$clr1: #FF521C;
+$clr2: #000;
+$clr3: #fff;
+$clr4: darken($clr3, 40%);
+$clr5: #2d2d2d;
 
 // LAYOUT
-$layoutPadding: 10px;
+$layoutPadding: 20px;
 
 // LAYOUT BREAKPOINTS
-$break-narrow: 460px;
-$break-normal: 640px;
-$break-wide: 960px;
+$break-narrow: 1200px;
+$break-normal: 1360px;
+$break-wide: 1920px;
 
 $padded-break-narrow: $break-narrow + $layoutPadding * 2;
 $padded-break-normal: $break-normal + $layoutPadding * 2;

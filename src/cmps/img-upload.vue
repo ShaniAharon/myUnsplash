@@ -1,6 +1,7 @@
 <template>
   <div v-if="!isUploaded" class="home-page center upload-center">
     <h1>{{ title }}</h1>
+    <img src="../assets/unsplash-logo.png" alt="" />
     <template v-if="!isLoading">
       <h4>File should be Jpeg, Png...</h4>
       <!-- UPLOAD IMG -->

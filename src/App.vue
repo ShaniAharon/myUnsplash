@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img-upload @save="saveImg" />
+    <router-view />
   </div>
 </template>
 

@@ -1,0 +1,82 @@
+body {
+  background-color: #ffffff;
+}
+
+.upload-center {
+  position: relative;
+  padding: 40px 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: fit-content;
+  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  // box-shadow: 4px 6px 6px rgb(0 0 0 / 10%);
+  box-shadow: -1px 5px 6px 4px rgb(0 0 0 / 10%);
+
+  h1 {
+    font-size: 2em;
+    color: #5c5c5c;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+}
+
+.test {
+  font-size: 20px;
+}
+
+.btn-add {
+  padding: 10px 16px;
+  height: 55px;
+  width: 137px;
+  color: #ffffff;
+  background-color: #3db46d;
+  border-radius: 12px;
+  font-size: 17px;
+  //   font-family: Noto Sans;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-modal {
+  // display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.25); /* Black w/ opacity */
+}
+
+.form-add {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px 50px;
+  background-color: rgb(176, 202, 186);
+  border-radius: 10px;
+  width: fit-content;
+  h1 {
+    font-size: 2em;
+    border-left: 5px solid #2ac893;
+    padding: 10px;
+    color: #000;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+}

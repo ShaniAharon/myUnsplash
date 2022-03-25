@@ -1,70 +1,123 @@
+::selection {
+  background-color: $clr1;
+  color: $clr3;
+}
+
 * {
-    box-sizing: border-box;
-    user-select: none;
-
+  box-sizing: border-box;
 }
-
-button{
-    cursor: pointer;
-}
-label{
-    cursor: pointer;
-}
-
 
 html {
-//    font-family: Montserrat; 
-//    font-family: GreatVibes; 
-   font-family: Opensans, sans-serif;  
-   color: $clr2;
-   line-height: 1.8;
+  font-family: Bahnschrift, sans-serif;
+  color: $clr3;
+  line-height: 1.8;
+  line-height: lh(26px);
+  height: 100vh;
+  @media (max-width: 1300px) {
+    font-size: 13px;
+  }
 }
-
-
 
 body {
-    margin: 0;
-    background-size: 400px;
+  margin: 0;
+  // background-color: $clr2;
+
+  @include for-normal-layout {
+    &.sidebar-open {
+      overflow: hidden;
+    }
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 1rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  margin: 0 0 1rem;
+  line-height: lh(40px, 29px);
 }
 
-ul{
-    list-style: none;
+h1 {
+  font-size: rem(60px);
 }
 
+h2 {
+  font-size: em(16px);
+  margin: em(63px) 0;
+  grid-area: title;
+  color: $clr1;
+  text-transform: uppercase;
+  @include type(boldCondensed);
+}
+
+h3 {
+  font-size: em(29px);
+}
 
 img {
-    width: 100%;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
-    user-select: none;
+  width: 100%;
 }
-
 
 p {
-    // margin: 0 0 1rem;
-    max-width: 60ch;
+  margin: 0 0 1em;
+  max-width: 60ch;
+  @include type(light);
+  .main-text & {
+    grid-column: 3 / 6;
+    font-size: rem(22px);
+    line-height: 1.384615;
+    padding-inline-start: rem(30px);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      max-height: 42px;
+      background-color: $clr1;
+
+      @include for-wide-layout {
+        width: 10px;
+      }
+    }
+
+    @include for-wide-layout {
+      grid-column: 3 / 5;
+      font-size: rem(26px);
+    }
+  }
 }
 
-// section[class*="wap"]{
-//     position: relative;
-// } 
+// .btn {
+//   @include btn;
 
-[contenteditable] {
-    outline: 1px solid transparent;
-    outline-offset: 6px
+//   &-dark {
+//     @include btn($type: dark);
+//   }
 
+//   &-light {
+//     @include btn($type: light);
+//   }
+// }
+
+// links
+a {
+  color: $clr1;
+
+  &.active {
+    background-color: $clr1;
+    color: $clr2;
   }
+}
 
-  
-[contenteditable]:hover {
-    outline:dashed 2px rgba(192, 192, 192, 0.993);
-    outline-offset: 6px
-
-  }
+mark {
+  color: $clr1;
+  background-color: transparent;
+}

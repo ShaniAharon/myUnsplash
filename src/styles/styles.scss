@@ -8,16 +8,15 @@
 @import 'basics/helpers';
 @import 'basics/base';
 @import 'basics/layout';
-@import 'basics/variables';
 
 // COMPONENTS
-// @import 'components/main-header';
-@import 'components/app-header';
+@import 'components/main-header';
+@import 'components/teaser';
+@import 'components/pager';
+@import 'components/news';
+@import 'components/cards';
+@import 'components/sidebar';
 @import 'components/home-page';
-@import 'components/home-view';
-@import 'components/project-list';
-@import 'components/project-preview';
+@import 'components/app-main';
 
-//PAGES
-@import 'pages/google-form';
-@import 'pages/project-details';
+//Pages
