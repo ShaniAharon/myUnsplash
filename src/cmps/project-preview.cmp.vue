@@ -1,6 +1,6 @@
 <template>
   <section class="align-center">
-    <h2>{{ project.name }}</h2>
+    <h2>{{ project.name || project.label }}</h2>
     <h3>{{ project.price }}</h3>
     <img :src="project?.imgUrl" alt="" />
   </section>
