@@ -1,5 +1,6 @@
 <template>
   <div class="img-container">
+    <!-- TODO: need to add modal with password for delete -->
     <button
       @click="removePhoto"
       @mouseover="on"
