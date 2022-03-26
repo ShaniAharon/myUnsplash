@@ -1,11 +1,10 @@
 <template>
-  <main class="main-content">
-    <header class="header flex">
-      <div>
-        <img src="@/assets/unsplash.png" alt="" />
+  <main class="">
+    <header class="header container-layout flex">
+      <div class="flex">
+        <img class="logo" src="@/assets/unsplash.png" alt="" />
+        <photo-filter @setFilter="setFilter" />
       </div>
-      <!-- <input type="text" class="input-search" placeholder="Search by name" /> -->
-      <photo-filter @setFilter="setFilter" />
       <button class="btn-add" @click="openModal">Add photo</button>
     </header>
   </main>
@@ -73,6 +72,7 @@
             photo: this.photoToEdit,
           });
           this.closeModal();
+          this.photoToEdit = photoService.getEmptyPhoto();
         } catch (err) {
           console.log(err);
         }

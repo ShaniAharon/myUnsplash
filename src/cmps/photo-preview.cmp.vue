@@ -1,9 +1,8 @@
 <template>
-  <section class="align-center">
-    <h2>{{ photo.name || photo.label }}</h2>
-    <h3>{{ photo.price }}</h3>
+  <div class="align-center">
+    <!-- <h2>{{ photo.name || photo.label }}</h2> -->
     <img :src="photo?.imgUrl" alt="" />
-  </section>
+  </div>
 </template>
 <script>
   export default {

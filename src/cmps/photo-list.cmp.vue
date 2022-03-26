@@ -1,18 +1,18 @@
 <template>
-  <section class="resp-grid align-center">
-    <div v-for="photo in photos" :key="photo._id">
-      <photo-preview
-        class="photo-preview card"
-        @click="showDetails(photo._id)"
-        :photo="photo"
-      />
-      <div class="btns-container">
+  <section class="container-layout masonry">
+    <photo-preview
+      v-for="(photo, idx) in photos"
+      :key="photo._id"
+      class="grid"
+      @click="showDetails(photo._id)"
+      :photo="photo"
+    />
+    <!-- <div class="btns-container">
         <button @click="removePhoto(photo._id)" class="btn btn-black">X</button>
         <button @click="editPhoto(photo._id)" class="btn btn-black">
           Edit
         </button>
-      </div>
-    </div>
+      </div> -->
   </section>
 </template>
 <script>
@@ -39,7 +39,11 @@
         this.$router.push(`/details/${photoId}`);
       },
     },
-    computed: {},
+    computed: {
+      randSize() {
+        return ['tall', 'wide', 'big'][Math.floor(Math.random() * 3)];
+      },
+    },
     unmounted() {},
   };
 </script>
