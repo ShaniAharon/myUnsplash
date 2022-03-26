@@ -2,24 +2,23 @@ import {httpService} from './http.service.js';
 
 const ENDPOINT = 'photo';
 
-async function getPhotos(filterBy) {
+async function query(filterBy) {
   return await httpService.get(ENDPOINT, filterBy);
 }
 
-async function getPhotoById(photoId) {
+async function getById(photoId) {
   return await httpService.get(`${ENDPOINT}/${photoId}`);
 }
 
-async function removePhoto(photoId) {
+async function remove(photoId) {
   return await httpService.delete(`${ENDPOINT}/${photoId}`);
 }
 
-async function savePhoto(photo) {
+async function save(photo) {
   var photo = JSON.parse(JSON.stringify(photo));
   if (photo._id) {
     return await httpService.put(`${ENDPOINT}/${photo._id}`, photo);
   } else {
-    if (!photo.name) photo.name = 'Unknown';
     return await httpService.post(ENDPOINT, photo);
   }
 }
@@ -29,18 +28,18 @@ async function savePhoto(photo) {
 // }
 
 function getEmptyPhoto() {
-  var emptyPhoto = {
+  var empty = {
     label: '',
     imgUrl: '',
   };
-  return emptyPhoto;
+  return empty;
 }
 
 export const photoService = {
-  getPhotos,
-  getPhotoById,
+  query,
+  getById,
   getEmptyPhoto,
-  removePhoto,
-  savePhoto,
+  remove,
+  save,
   // addReview
 };

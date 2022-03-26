@@ -12,6 +12,9 @@
         imgUrls: [],
       };
     },
+    created() {
+      this.$store.dispatch({type: 'loadPhotos'});
+    },
     methods: {
       saveImg(imgUrl) {
         this.imgUrls.push(imgUrl);

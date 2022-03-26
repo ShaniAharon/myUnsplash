@@ -3,13 +3,13 @@
     <h1>{{ formTitle }}</h1>
     <form @submit.prevent="save">
       <div class="inputbox">
-        <input type="text" v-model="projectToEdit.name" placeholder="title" />
+        <input type="text" v-model="photoToEdit.name" placeholder="title" />
       </div>
       <div class="inputbox">
         <input
           class=""
           type="number"
-          v-model="projectToEdit.price"
+          v-model="photoToEdit.price"
           placeholder="price"
         />
       </div>
@@ -21,37 +21,37 @@
 </template>
 
 <script>
-  import {projectService} from '../services/project.service.js';
+  import {photoService} from '../services/photo.service.js';
 
   export default {
-    name: 'ProjectEdit',
+    name: 'PhotoEdit',
     components: {},
     data() {
       return {
-        projectToEdit: projectService.getEmptyProject(),
+        photoToEdit: photoService.getEmptyPhoto(),
       };
     },
     created() {
-      const projectId = this.projectId;
-      if (projectId) {
-        projectService
-          .getById(projectId)
-          .then((project) => (this.projectToEdit = project));
+      const photoId = this.photoId;
+      if (photoId) {
+        photoService
+          .getById(photoId)
+          .then((photo) => (this.photoToEdit = photo));
       }
     },
     methods: {
       save() {
-        projectService.save(this.projectToEdit).then((project) => {
+        photoService.save(this.photoToEdit).then((photo) => {
           this.$router.push('/app');
         });
       },
     },
     computed: {
       formTitle() {
-        return this.projectId ? 'Edit project' : 'Add project';
+        return this.photoId ? 'Edit photo' : 'Add photo';
       },
-      projectId() {
-        return this.$route.params.projectId;
+      photoId() {
+        return this.$route.params.photoId;
       },
     },
     unmounted() {},

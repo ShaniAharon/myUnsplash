@@ -1,110 +1,90 @@
-import {photoService} from '@/services/photo.service.js';
-
+import {photoService} from '../../services/photo.service.js';
+import {socketService} from '../../services/socket.service.js';
 export default {
   state: {
     photos: null,
     filterBy: null,
+    isLoading: false,
+    // msgs: []
   },
   getters: {
     photos(state) {
       return state.photos;
+    },
+    getLabels(state) {
+      return state.labels;
+    },
+    isLoading(state) {
+      return state.isLoading;
     },
   },
   mutations: {
     setPhotos(state, {photos}) {
       state.photos = photos;
     },
-
-    setFilterBy(state, {filterBy}) {
-      state.filterBy = filterBy;
+    setIsLoading(state, {isLoading}) {
+      state.isLoading = isLoading;
     },
-
-    sortBy(state, {sortBy}) {
-      var photos = JSON.parse(JSON.stringify(state.photos));
-      if (!sortBy) state.photos = photos;
-      else
-        state.photos = photos.sort((a, b) => {
-          let valA = a[sortBy];
-          let valB = b[sortBy];
-          if (sortBy === 'name') {
-            valA = valA.toLowerCase();
-            valB = valB.toLowerCase();
-          }
-          return valA > valB ? 1 : -1;
-        });
-    },
-
-    removePhoto(state, {photoId}) {
-      var photos = JSON.parse(JSON.stringify(state.photos));
-      var photoIdx = photos.findIndex((photo) => photo._id === photoId);
-      photos.splice(photoIdx, 1);
-      state.photos = photos;
+    removePhoto(state, {id}) {
+      const idx = state.photos.findIndex((photo) => photo._id === id);
+      state.photos.splice(idx, 1);
     },
     savePhoto(state, {photo}) {
       const idx = state.photos.findIndex(
         (currPhoto) => currPhoto._id === photo._id
       );
       if (idx !== -1) state.photos.splice(idx, 1, photo);
-      else state.photos.push(photo);
+      else state.photos.unshift(photo);
+    },
+    setFilter(state, {filterBy}) {
+      state.filterBy = filterBy;
     },
   },
   actions: {
-    async loadPhotos(context) {
+    async loadPhotos({commit, state}) {
+      // commit({type: 'setIsLoading', isLoading: true});
       try {
-        var filterBy = context.state.filterBy ? context.state.filterBy : '';
-        const photos = await photoService.getPhotos(filterBy);
-        context.commit({type: 'setPhotos', photos});
-        return photos; //check it dont need to return them
+        var photos = await photoService.query(state.filterBy);
+        console.log('photos', photos);
+        commit({type: 'setPhotos', photos});
+      } catch (err) {
+        console.error('Cannot Load photos', err);
+        throw err;
+      }
+      // finally {
+      //   commit({type: 'setIsLoading', isLoading: false});
+      // }
+    },
+    async removePhoto({commit}, {id}) {
+      try {
+        await photoService.remove(id);
+        commit({type: 'removePhoto', id});
+      } catch (err) {
+        console.error('Cannot remove photo', err);
+        throw err;
+      }
+    },
+    async getToyById(context, {photoId}) {
+      try {
+        return await photoService.getToyById(photoId);
       } catch (err) {
         console.log(err);
       }
     },
-
-    async getPhotoById(context, {photoId}) {
+    async savePhoto({commit}, {photo}) {
       try {
-        return await photoService.getPhotoById(photoId);
+        const msgTxt = photo._id ? 'Photo updated' : 'Photo added';
+        var photo = await photoService.save(photo);
+        socketService.emit('msg watched users', msgTxt);
+        commit({type: 'savePhoto', photo});
       } catch (err) {
-        console.log(err);
+        console.error('Cannot Edit/Add photo', err);
+        throw err;
       }
     },
-
-    getEmptyPhoto() {
-      return photoService.getEmptyPhoto(); // maybe dont need to be here sync
+    filter({commit, dispatch}, {filterBy}) {
+      commit({type: 'setFilter', filterBy});
+      dispatch({type: 'loadPhotos'});
     },
-    async removePhoto(context, {photoId}) {
-      try {
-        await photoService.removePhoto(photoId);
-        context.commit({type: 'removePhoto', photoId});
-        return;
-      } catch (err) {
-        console.log(err);
-      }
-    },
-
-    async savePhoto(context, {photo}) {
-      try {
-        // if (!context.state.photos) await context.dispatch({ type: 'loadPhotos' })
-        // const isEdit = !!photo._id;
-        const savedPhoto = await photoService.savePhoto(photo);
-        context.commit({type: 'savePhoto', photo: savedPhoto});
-      } catch (err) {
-        console.log(err);
-      }
-    },
-
-    // async addReview(context, { photoId, reviewTxt }) {
-    //   const user = context.rootGetters.getUser;
-    //   if (!user) return router.push('/login');
-    //   const review = {
-    //     txt: reviewTxt,
-    //     miniUser: {
-    //       id: user._id,
-    //       username: user.username
-    //     }
-    //   }
-    //   const updatedPhoto = await photoService.addReview(photoId, review)
-    //   context.commit({ type: 'updatePhoto', photo: updatedPhoto })
-    // }
   },
-  modules: {},
 };

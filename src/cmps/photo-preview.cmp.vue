@@ -1,14 +1,14 @@
 <template>
   <section class="align-center">
-    <h2>{{ project.name || project.label }}</h2>
-    <h3>{{ project.price }}</h3>
-    <img :src="project?.imgUrl" alt="" />
+    <h2>{{ photo.name || photo.label }}</h2>
+    <h3>{{ photo.price }}</h3>
+    <img :src="photo?.imgUrl" alt="" />
   </section>
 </template>
 <script>
   export default {
-    name: 'ProjectPreview',
-    props: ['project'],
+    name: 'PhotoPreview',
+    props: ['photo'],
     components: {},
     data() {
       return {};
