@@ -4,8 +4,8 @@
       v-for="(photo, idx) in photos"
       :key="photo._id"
       class="grid"
-      @click="showDetails(photo._id)"
       :photo="photo"
+      @remove="removePhoto"
     />
     <!-- <div class="btns-container">
         <button @click="removePhoto(photo._id)" class="btn btn-black">X</button>
@@ -32,12 +32,12 @@
       removePhoto(projId) {
         this.$emit('removed', projId);
       },
-      editPhoto(photoId) {
-        this.$router.push(`/edit/${photoId}`);
-      },
-      showDetails(photoId) {
-        this.$router.push(`/details/${photoId}`);
-      },
+      // editPhoto(photoId) {
+      //   this.$router.push(`/edit/${photoId}`);
+      // },
+      // showDetails(photoId) {
+      //   this.$router.push(`/details/${photoId}`);
+      // },
     },
     computed: {
       randSize() {

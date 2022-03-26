@@ -1,7 +1,15 @@
 <template>
-  <div class="align-center">
-    <!-- <h2>{{ photo.name || photo.label }}</h2> -->
-    <img :src="photo?.imgUrl" alt="" />
+  <div class="img-container">
+    <button
+      @click="removePhoto"
+      @mouseover="on"
+      v-show="isHover"
+      class="btn btn-delete"
+    >
+      delete
+    </button>
+    <img @mouseover="on" @mouseout="off" :src="photo?.imgUrl" alt="" />
+    <h2 @mouseover="on" v-show="isHover" class="label">{{ photo.label }}</h2>
   </div>
 </template>
 <script>
@@ -10,10 +18,22 @@
     props: ['photo'],
     components: {},
     data() {
-      return {};
+      return {
+        isHover: false,
+      };
     },
     created() {},
-    methods: {},
+    methods: {
+      on() {
+        this.isHover = true;
+      },
+      off() {
+        this.isHover = false;
+      },
+      removePhoto() {
+        this.$emit('remove', this.photo._id);
+      },
+    },
     computed: {},
     unmounted() {},
   };

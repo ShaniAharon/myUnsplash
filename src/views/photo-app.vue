@@ -15,13 +15,23 @@
   <div v-show="isShow" class="add-modal">
     <form @submit.prevent class="form-add">
       <h1>Add a new photo</h1>
-      <h3>Label</h3>
-      <input type="text" v-model="photoToEdit.label" class="input-big" />
-      <h3>Photo URL</h3>
-      <input type="text" v-model="photoToEdit.imgUrl" class="input-big" />
-      <div class="flex">
-        <button class="btn btn-black" @click="closeModal">Cancel</button>
-        <button class="btn-add" @click="save">Submit</button>
+      <h4>Label</h4>
+      <input
+        type="text"
+        placeholder="Your label here :)"
+        v-model="photoToEdit.label"
+        class=""
+      />
+      <h4>Photo URL</h4>
+      <input
+        type="text"
+        placeholder="http://images.example.com/photo-12345234"
+        v-model="photoToEdit.imgUrl"
+        class=""
+      />
+      <div class="flex btns-container">
+        <button class="btn btn-cancel" @click="closeModal">Cancel</button>
+        <button class="btn-submit" @click="save">Submit</button>
       </div>
     </form>
   </div>
