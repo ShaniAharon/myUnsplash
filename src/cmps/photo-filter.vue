@@ -20,7 +20,7 @@
       };
     },
     created() {
-      this.setFilter = utilService.debounce(this.setFilter, 700);
+      this.setFilter = utilService.debounce(this.setFilter, 400);
     },
     methods: {
       setFilter() {
