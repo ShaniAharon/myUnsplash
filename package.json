@@ -12,8 +12,10 @@
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "sass": "^1.49.9",
+    "socket.io-client": "^4.4.1",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.2",
