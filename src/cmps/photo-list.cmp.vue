@@ -21,6 +21,7 @@
   export default {
     name: 'PhotoList',
     props: ['photos'],
+    emits: ['removed'],
     components: {
       photoPreview,
     },

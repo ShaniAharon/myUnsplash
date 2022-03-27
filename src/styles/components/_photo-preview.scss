@@ -53,7 +53,7 @@ body {
   margin-bottom: 60px;
 }
 
-.add-modal {
+.delete-modal {
   // display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -67,7 +67,7 @@ body {
   background-color: rgba(0, 0, 0, 0.25); /* Black w/ opacity */
 }
 
-.form-add {
+.form-delete {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -98,11 +98,11 @@ body {
     align-items: center;
     justify-content: flex-end;
   }
-  .btn-submit {
+  .btn-red {
     margin-left: 5px;
     width: 105px;
     height: 55px;
-    background: #3db46d;
+    background: #da5243;
     border: none;
     font-weight: bold;
     font-style: normal;
@@ -112,9 +112,9 @@ body {
     border-radius: 12px;
     cursor: pointer;
   }
-  .btn-submit:hover {
+  .btn-red:hover {
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.25);
-    background: #40ca77;
+    background: #d33e2d;
     transition: 0.3s;
   }
   .btn-cancel {
