@@ -78,7 +78,7 @@
         await this.$store.dispatch({
           type: 'savePhoto',
           photo: {
-            label: user.username || '',
+            label: user?.username || '',
             imgUrl,
           },
         });
