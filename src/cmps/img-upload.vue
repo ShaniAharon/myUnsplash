@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isUploaded" @click="closeModal" class="home-page modal">
+  <div v-if="!isUploaded" @dblclick="closeModal" class="home-page modal">
     <div class="upload-center center">
       <h1>{{ title }}</h1>
       <!-- <img src="../assets/unsplash-logo.png" alt="" /> -->
