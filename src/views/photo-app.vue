@@ -4,10 +4,13 @@
       <div class="flex">
         <img class="logo" src="@/assets/my_unsplash_logo.svg" alt="" />
         <photo-filter @setFilter="setFilter" />
+        <span v-if="user"> Hi {{ user.username }}</span>
       </div>
+      <button class="btn-add" @click="openLogin">Login</button>
       <button class="btn-add" @click="openModal">Add photo</button>
     </header>
   </main>
+  <login @close="closeLogin" v-if="isLogin" />
   <section class="container-center">
     <photo-list @removed="removePhoto" v-if="photos" :photos="photos" />
   </section>
@@ -42,6 +45,7 @@
   import photoList from '../cmps/photo-list.cmp.vue';
   import {photoService} from '../services/photo.service.js';
   import photoEdit from '../views/photo-edit.vue';
+  import login from '../views/login-page.vue';
   import photoFilter from '../cmps/photo-filter.vue';
 
   export default {
@@ -51,12 +55,14 @@
       photoEdit,
       photoFilter,
       PhotoFilter,
+      login,
     },
     data() {
       return {
         // photos: null,
         photoToEdit: photoService.getEmptyPhoto(),
         isShow: false,
+        isLogin: false,
       };
     },
     created() {
@@ -69,6 +75,12 @@
       //     this.photos = projs;
       //   });
       // },
+      openLogin() {
+        this.isLogin = true;
+      },
+      closeLogin() {
+        this.isLogin = false;
+      },
       openModal() {
         this.isShow = true;
       },
@@ -100,6 +112,9 @@
       // },
       photos() {
         return this.$store.getters.photos;
+      },
+      user() {
+        return this.$store.getters.getUser;
       },
     },
     unmounted() {},
