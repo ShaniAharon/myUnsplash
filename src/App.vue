@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <router-view />
+    <!-- <img-upload></img-upload> -->
   </div>
 </template>
 
 <script>
-  import imgUpload from '@/cmps/img-upload.vue';
+  // import imgUpload from '@/cmps/img-upload.vue';
   export default {
     data() {
       return {
@@ -21,7 +22,7 @@
       },
     },
     components: {
-      imgUpload,
+      // imgUpload,
     },
   };
 </script>

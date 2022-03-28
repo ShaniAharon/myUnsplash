@@ -73,8 +73,10 @@ export default {
     },
     async savePhoto({commit}, {photo}) {
       try {
+        console.log('im here save photo');
         const msgTxt = photo._id ? 'Photo updated' : 'Photo added';
         var photo = await photoService.save(photo);
+        console.log('added the new photo', photo);
         socketService.emit('msg watched users', msgTxt);
         commit({type: 'savePhoto', photo});
       } catch (err) {

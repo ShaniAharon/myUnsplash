@@ -1,44 +1,50 @@
 <template>
-  <div v-if="!isUploaded" class="home-page center upload-center">
-    <h1>{{ title }}</h1>
-    <img src="../assets/unsplash-logo.png" alt="" />
-    <template v-if="!isLoading">
-      <h4>File should be Jpeg, Png...</h4>
-      <!-- UPLOAD IMG -->
-      <label
-        for="imgUploader"
-        @drop.prevent="handleFile"
-        @dragover.prevent="isDragOver = true"
-        @dragleave="isDragOver = false"
-        :class="{drag: isDragOver, 'not-drag': !isDragOver}"
-      >
-        <!--prevent on drop and dragover is importent soo the img will not open in the browser-->
-        <img src="src/assets/upload.png" alt="Drop images here" />
-        <h3>Drag & Drop your image here</h3>
-      </label>
-      <h4>Or</h4>
-      <input type="file" ref="file" style="display: none" />
-      <button @click="$refs.file.click()">Choose a file</button>
-      <!-- HIDDEN INPUT -->
-      <input
-        type="file"
-        name="img-uploader"
-        id="imgUploader"
-        @change="handleFile"
-      />
-    </template>
-    <!-- LOADER -->
-    <img v-else src="src/assets/loader.gif" alt="" />
+  <div v-if="!isUploaded" @click="closeModal" class="home-page modal">
+    <div class="upload-center center">
+      <h1>{{ title }}</h1>
+      <!-- <img src="../assets/unsplash-logo.png" alt="" /> -->
+      <template v-if="!isLoading">
+        <h4>File should be Jpeg, Png...</h4>
+        <!-- UPLOAD IMG -->
+        <label
+          for="imgUploader"
+          @drop.prevent="handleFile"
+          @dragover.prevent="isDragOver = true"
+          @dragleave="isDragOver = false"
+          :class="{drag: isDragOver, 'not-drag': !isDragOver}"
+        >
+          <!--prevent on drop and dragover is importent soo the img will not open in the browser-->
+          <img src="src/assets/upload.png" alt="Drop images here" />
+          <h3>Drag & Drop your image here</h3>
+        </label>
+        <h4>Or</h4>
+        <input type="file" ref="file" style="display: none" />
+        <button @click="$refs.file.click()" class="pointer">
+          Choose a file
+        </button>
+        <!-- HIDDEN INPUT -->
+        <input
+          type="file"
+          name="img-uploader"
+          id="imgUploader"
+          @change="handleFile"
+        />
+      </template>
+      <!-- LOADER -->
+      <img v-else src="src/assets/loader.gif" alt="" />
+    </div>
   </div>
-  <div v-else class="home-page center upload-center">
-    <i class="fa-solid fa-circle-check ok"></i>
-    <h1>Uploaded Successfully!</h1>
-    <template v-if="!isLoading">
-      <img class="uploaded-img" @load="onImgLoad" :src="imgUrl" alt="" />
-      <p class="p-test"></p>
-      <input type="text" :value="imgUrl" class="input-test" />
-      <button class="btn-test" @click="copyToClip">Copy Link</button>
-    </template>
+  <div @dblclick="closeModal" v-else class="modal home-page">
+    <div class="center upload-center">
+      <i class="fa-solid fa-circle-check ok"></i>
+      <h1>Uploaded Successfully!</h1>
+      <template v-if="!isLoading">
+        <img class="uploaded-img" @load="onImgLoad" :src="imgUrl" alt="" />
+        <p class="p-test"></p>
+        <input type="text" :value="imgUrl" class="input-test" />
+        <button class="btn-test" @click="copyToClip">Copy Link</button>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -67,7 +73,17 @@
         this.isDragOver = false;
         const res = await uploadImg(file);
         // this.$emit('save', res.url);
-        this.imgUrl = res.url;
+        const imgUrl = res.url;
+        const user = this.$store.getters.getUser;
+        await this.$store.dispatch({
+          type: 'savePhoto',
+          photo: {
+            label: user.username || '',
+            imgUrl,
+          },
+        });
+        this.imgUrl = imgUrl;
+
         this.isUploaded = true;
         this.isLoading = false;
       },
@@ -77,6 +93,9 @@
       onImgLoad() {
         //TDO: try to make the all div apper only when the img ready
         console.log('yes');
+      },
+      closeModal() {
+        this.$emit('closeM');
       },
     },
     computed: {

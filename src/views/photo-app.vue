@@ -7,10 +7,14 @@
         <span v-if="user"> Hi {{ user.username }}</span>
       </div>
       <button class="btn-add" @click="openLogin">Login</button>
+      <button class="btn-add" @click="openUpload">Upload</button>
       <button class="btn-add" @click="openModal">Add photo</button>
     </header>
   </main>
   <login @close="closeLogin" v-if="isLogin" />
+  <!-- <img-uplaod /> -->
+  <img-upload @closeM="closeUpload" v-if="isUpload" />
+
   <section class="container-center">
     <photo-list @removed="removePhoto" v-if="photos" :photos="photos" />
   </section>
@@ -43,6 +47,7 @@
 <script>
   import PhotoFilter from '../cmps/photo-filter.vue';
   import photoList from '../cmps/photo-list.cmp.vue';
+  import imgUpload from '@/cmps/img-upload.vue';
   import {photoService} from '../services/photo.service.js';
   import photoEdit from '../views/photo-edit.vue';
   import login from '../views/login-page.vue';
@@ -55,6 +60,7 @@
       photoEdit,
       photoFilter,
       PhotoFilter,
+      imgUpload,
       login,
     },
     data() {
@@ -63,6 +69,7 @@
         photoToEdit: photoService.getEmptyPhoto(),
         isShow: false,
         isLogin: false,
+        isUpload: false,
       };
     },
     created() {
@@ -86,6 +93,12 @@
       },
       closeModal() {
         this.isShow = false;
+      },
+      openUpload() {
+        this.isUpload = true;
+      },
+      closeUpload() {
+        this.isUpload = false;
       },
       async save() {
         try {
