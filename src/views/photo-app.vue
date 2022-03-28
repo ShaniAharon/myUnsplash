@@ -2,7 +2,7 @@
   <main class="">
     <header class="header container-layout flex">
       <div class="flex">
-        <img class="logo" src="@/assets/unsplash.png" alt="" />
+        <img class="logo" src="@/assets/my_unsplash_logo.svg" alt="" />
         <photo-filter @setFilter="setFilter" />
       </div>
       <button class="btn-add" @click="openModal">Add photo</button>
