@@ -6,7 +6,8 @@
         <photo-filter @setFilter="setFilter" />
         <span v-if="user"> Hi {{ user.username }}</span>
       </div>
-      <button class="btn-add" @click="openLogin">Login</button>
+      <button v-if="!user" class="btn-add" @click="openLogin">Login</button>
+      <button v-if="user" class="btn-add" @click="logout">Logout</button>
       <button class="btn-add" @click="openUpload">Upload</button>
       <button class="btn-add" @click="openModal">Add photo</button>
     </header>
@@ -99,6 +100,9 @@
       },
       closeUpload() {
         this.isUpload = false;
+      },
+      logout() {
+        this.$store.dispatch({type: 'logout'});
       },
       async save() {
         try {
