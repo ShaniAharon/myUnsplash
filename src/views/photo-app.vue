@@ -12,12 +12,23 @@
       <button class="btn-add" @click="openModal">Add photo</button>
     </header>
   </main>
+  <!-- login -->
   <login @close="closeLogin" v-if="isLogin" />
   <!-- <img-uplaod /> -->
   <img-upload @closeM="closeUpload" v-if="isUpload" />
-
+  <!-- photo details -->
+  <photo-details
+    @closeDetails="closeDetails"
+    :photoId="currPhotoId"
+    v-if="isDetails"
+  />
   <section class="container-center">
-    <photo-list @removed="removePhoto" v-if="photos" :photos="photos" />
+    <photo-list
+      @removed="removePhoto"
+      @showDetails="showDetails"
+      v-if="photos"
+      :photos="photos"
+    />
   </section>
   <!-- can put the modal in is own cmp and render it here , also put the edit/save logic in there -->
   <div v-show="isShow" class="add-modal">
@@ -52,6 +63,7 @@
   import {photoService} from '../services/photo.service.js';
   import photoEdit from '../views/photo-edit.vue';
   import login from '../views/login-page.vue';
+  import photoDetails from '../views/photo-details.vue';
   import photoFilter from '../cmps/photo-filter.vue';
 
   export default {
@@ -63,6 +75,7 @@
       PhotoFilter,
       imgUpload,
       login,
+      photoDetails,
     },
     data() {
       return {
@@ -71,18 +84,23 @@
         isShow: false,
         isLogin: false,
         isUpload: false,
+        isDetails: false,
+        currPhotoId: '',
       };
     },
     created() {
       // this.loadPhotos();
     },
     methods: {
-      // loadPhotos() {
-      //   photoService.query({}).then((projs) => {
-      //     console.log(projs);
-      //     this.photos = projs;
-      //   });
-      // },
+      showDetails(photoId) {
+        console.log('im here');
+        this.currPhotoId = photoId;
+        this.isDetails = true;
+      },
+      closeDetails() {
+        console.log('im close details');
+        this.isDetails = false;
+      },
       openLogin() {
         this.isLogin = true;
       },

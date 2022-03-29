@@ -4,6 +4,7 @@
       v-for="(photo, idx) in photos"
       :key="photo._id"
       class="grid"
+      @click.stop="showDetails(photo._id)"
       :photo="photo"
       @remove="removePhoto"
     />
@@ -21,7 +22,7 @@
   export default {
     name: 'PhotoList',
     props: ['photos'],
-    emits: ['removed'],
+    emits: ['removed', 'showDetails'],
     components: {
       photoPreview,
     },
@@ -32,6 +33,11 @@
     methods: {
       removePhoto(projId) {
         this.$emit('removed', projId);
+      },
+      showDetails(photoId) {
+        // this.$router.replace(`/details/${photoId}`);
+        // this.$router.push(`/details/${photoId}`);
+        this.$emit('showDetails', photoId);
       },
       // editPhoto(photoId) {
       //   this.$router.push(`/edit/${photoId}`);

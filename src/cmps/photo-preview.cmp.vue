@@ -2,7 +2,7 @@
   <div class="img-container">
     <!-- TODO: need to add modal with password for delete -->
     <button
-      @click="openModal"
+      @click.stop="openModal"
       @mouseover="on"
       v-show="isHover"
       class="btn btn-delete"
@@ -17,8 +17,10 @@
         <h4>Password</h4>
         <input type="password" placeholder="Your password here :)" />
         <div class="flex btns-container">
-          <button class="btn btn-cancel" @click="closeModal">Cancel</button>
-          <button class="btn-red" @click="removePhoto">Delete</button>
+          <button class="btn btn-cancel" @click.stop="closeModal">
+            Cancel
+          </button>
+          <button class="btn-red" @click.stop="removePhoto">Delete</button>
         </div>
       </form>
     </div>
@@ -45,6 +47,7 @@
         this.isHover = false;
       },
       openModal() {
+        console.log('im opening');
         this.isShow = true;
       },
       closeModal() {

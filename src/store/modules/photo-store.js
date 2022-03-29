@@ -64,9 +64,9 @@ export default {
         throw err;
       }
     },
-    async getToyById(context, {photoId}) {
+    async getPhotoById(context, {photoId}) {
       try {
-        return await photoService.getToyById(photoId);
+        return await photoService.getById(photoId);
       } catch (err) {
         console.log(err);
       }
