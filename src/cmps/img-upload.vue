@@ -14,7 +14,7 @@
           :class="{drag: isDragOver, 'not-drag': !isDragOver}"
         >
           <!--prevent on drop and dragover is importent soo the img will not open in the browser-->
-          <img src="src/assets/upload.png" alt="Drop images here" />
+          <img src="@/assets/upload.png" alt="Drop images here" />
           <h3>Drag & Drop your image here</h3>
         </label>
         <h4>Or</h4>
@@ -31,7 +31,7 @@
         />
       </template>
       <!-- LOADER -->
-      <img v-else src="src/assets/loader.gif" alt="" />
+      <img v-else src="@/assets/loader.gif" alt="" />
     </div>
   </div>
   <div @dblclick="closeModal" v-else class="modal home-page">
