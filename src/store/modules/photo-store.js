@@ -78,6 +78,7 @@ export default {
         var photo = await photoService.save(photo);
         console.log('added the new photo', photo);
         socketService.emit('msg watched users', msgTxt);
+        socketService.emit('test', msgTxt);
         commit({type: 'savePhoto', photo});
       } catch (err) {
         console.error('Cannot Edit/Add photo', err);

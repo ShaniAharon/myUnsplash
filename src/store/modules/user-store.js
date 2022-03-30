@@ -1,4 +1,5 @@
 import {userService} from '@/services/user.service.js';
+import {socketService} from '@/services/socket.service';
 
 export default {
   state: {
@@ -20,6 +21,7 @@ export default {
       try {
         const user = await userService.login(cred);
         commit({type: 'setUser', user});
+        socketService.emit('watch user', user._id);
       } catch (err) {
         console.log(err);
       }
