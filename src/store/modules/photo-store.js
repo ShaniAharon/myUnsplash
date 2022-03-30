@@ -59,6 +59,8 @@ export default {
       try {
         await photoService.remove(id);
         commit({type: 'removePhoto', id});
+        socketService.emit('test', 'removed a photo');
+        socketService.emit('deletePhoto', id);
       } catch (err) {
         console.error('Cannot remove photo', err);
         throw err;
@@ -80,6 +82,7 @@ export default {
         socketService.emit('msg watched users', msgTxt);
         socketService.emit('test', msgTxt);
         commit({type: 'savePhoto', photo});
+        socketService.emit('addPhoto', photo);
       } catch (err) {
         console.error('Cannot Edit/Add photo', err);
         throw err;

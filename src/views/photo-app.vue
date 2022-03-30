@@ -65,6 +65,7 @@
   import login from '../views/login-page.vue';
   import photoDetails from '../views/photo-details.vue';
   import photoFilter from '../cmps/photo-filter.vue';
+  import {socketService} from '@/services/socket.service';
 
   export default {
     name: 'PhotoApp',
@@ -90,12 +91,26 @@
     },
     created() {
       // this.loadPhotos();
+      socketService.on('test addMsg', this.showMsg);
+      socketService.on('delete photo', this.deletePhoto);
+      socketService.on('add photo', this.addPhoto);
     },
     methods: {
       showDetails(photoId) {
         console.log('im here');
         this.currPhotoId = photoId;
         this.isDetails = true;
+      },
+      showMsg(msg) {
+        console.log('got the msg', msg);
+      },
+      deletePhoto(imgId) {
+        console.log('im removing', imgId);
+        this.$store.commit({type: 'removePhoto', id: imgId});
+      },
+      addPhoto(photo) {
+        console.log('im adding', photo);
+        this.$store.commit({type: 'savePhoto', photo});
       },
       closeDetails() {
         console.log('im close details');
