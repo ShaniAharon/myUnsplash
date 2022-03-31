@@ -1,6 +1,5 @@
 <template>
   <div class="img-container">
-    <!-- TODO: need to add modal with password for delete -->
     <button
       @click.stop="openModal"
       @mouseover="on"
@@ -8,6 +7,14 @@
       class="btn btn-delete"
     >
       delete
+    </button>
+    <button
+      v-show="isHover"
+      @click.stop="onLike"
+      @mouseover="on"
+      :class="isLiked"
+    >
+      <i class="fa-solid fa-heart"></i>
     </button>
     <img @mouseover="on" @mouseout="off" :src="photo?.imgUrl" alt="" />
     <h2 @mouseover="on" v-show="isHover" class="label">{{ photo.label }}</h2>
@@ -36,6 +43,7 @@
       return {
         isHover: false,
         isShow: false,
+        like: false,
       };
     },
     created() {},
@@ -56,8 +64,15 @@
       removePhoto() {
         this.$emit('remove', this.photo._id);
       },
+      onLike() {
+        this.like = !this.like;
+      },
     },
-    computed: {},
+    computed: {
+      isLiked() {
+        return this.like ? 'like-clicked' : 'like';
+      },
+    },
     unmounted() {},
   };
 </script>

@@ -4,7 +4,15 @@
       <div class="flex">
         <img class="logo" src="@/assets/my_unsplash_logo.svg" alt="" />
         <photo-filter @setFilter="setFilter" />
-        <span v-if="user"> Hi {{ user.username }}</span>
+        <span v-if="user">
+          Hi {{ user.username }}
+          <img
+            @click="userPage"
+            class="avatar"
+            src="@/assets/portrait.png"
+            alt=""
+          />
+        </span>
       </div>
       <button v-if="!user" class="btn-add" @click="openLogin">Login</button>
       <button v-if="user" class="btn-add" @click="logout">Logout</button>
@@ -100,6 +108,9 @@
         console.log('im here');
         this.currPhotoId = photoId;
         this.isDetails = true;
+      },
+      userPage() {
+        this.$router.push('/user');
       },
       showMsg(msg) {
         console.log('got the msg', msg);
