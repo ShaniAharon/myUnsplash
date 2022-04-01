@@ -21,7 +21,7 @@
         <li class="flex">Blog <span class="line">|</span></li>
       </ul>
       <!-- <div class="btns-container flex"> -->
-      <a v-if="!user" class="" @click="openLogin">Login</a>
+      <a v-if="!user" class="" @click="openLogin">Log in</a>
       <button v-if="user" class="logout btn-add" @click="logout">Logout</button>
       <button class="btn-submit" @click="openUpload">Submit a photo</button>
       <!-- <span class="hmb">&#9776;</span> -->
