@@ -24,33 +24,114 @@ body {
   font-size: 20px;
 }
 
-.btn-add {
-  padding: 10px 16px;
-  height: 55px;
-  width: 137px;
-  color: #ffffff;
-  background-color: #3db46d;
-  border-radius: 12px;
-  font-size: 17px;
-  //   font-family: Noto Sans;
-  font-weight: bold;
-  border: none;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-  // margin: 10px;
+.btn-submit {
+  font-size: 14px;
+    height: 32px;
+    line-height: 30px;
+    padding: 0 11px;
+    background-color: #fff;
+    border: 1px solid #0000;
+    border-color: #d1d1d1;
+    color: #767676;
+    box-shadow: 0 1px 1px #0000000a;
+    fill: currentColor;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    transition: all .1s ease-in-out;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
   cursor: pointer;
 }
-.btn-add:hover {
-  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.25);
-  background: #40ca77;
-  transition: 0.3s;
+.btn-submit:hover {
+  border-color:  #767676;
+  color: #111;
 }
+
+.hmb{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+//hamburger
+.hmb {
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // position: absolute;
+  width: 18px;
+  cursor: pointer;
+
+}
+// .hmb:hover{
+  .hmb:before,
+  .hmb:after,
+.hmb div:hover {
+  color: #111;
+}
+
+.hmb:before,
+.hmb:after,
+.hmb div {
+  background: $clr1;
+  content: "";
+  display: block;
+  height: 2.5px;
+  line-height: 1;
+  border-radius: 3px;
+  margin: 3px 0;
+}
+// .btn-add {
+//   padding: 10px 16px;
+//   margin: 0 11px;
+//   height: 55px;
+//   width: 137px;
+//   color: #ffffff;
+//   background-color: #3db46d;
+//   border-radius: 12px;
+//   font-size: 17px;
+//   //   font-family: Noto Sans;
+//   font-weight: bold;
+//   border: none;
+//   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+//   // margin: 10px;
+//   cursor: pointer;
+// }
+// .btn-add:hover {
+//   box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.25);
+//   background: #40ca77;
+//   transition: 0.3s;
+// }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 32px;
-  margin-bottom: 60px;
+  margin-top: 3px;
+  margin-bottom: 48px;
+  .links{
+    align-items: center;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+     color: #767676;
+
+  }
+  .links >li{
+   margin-inline-end: 5px;
+   margin-inline-start: 15px;
+   font-size: 14px;
+  }
+  .line{
+    font-size: 15px;
+    margin-left: 17px;
+    font-weight: 100;
+  }
+  .links :last-child{
+    margin-inline-end: 1px;
+  }
 }
 
 .add-modal {
@@ -363,4 +444,11 @@ body {
   width: fit-content;
   margin: auto;
   padding-right: 32px;
+}
+
+.logo-cam{
+  width: fit-content;
+  margin: auto;
+  padding-right: 16px;
+  font-size: 40px;
 }

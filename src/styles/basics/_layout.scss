@@ -34,8 +34,19 @@
 }
 
 .container-layout {
-  margin: auto;
-  max-width: 90%;
+  // margin: auto;
+  margin-inline-start: 20px;
+  margin-inline-end: 20px;
+  // max-width: 90%;
+}
+// .container-layout {
+//   margin: auto;
+//   max-width: 90%;
+// }
+
+.center-layout{
+  margin-inline-end: 20px;
+  margin-inline-start: 20px;
 }
 
 .card-grid {

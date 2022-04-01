@@ -8,14 +8,14 @@
     >
       delete
     </button>
-    <button
+    <!-- <button
       v-show="isHover"
       @click.stop="onLike"
       @mouseover="on"
       :class="isLiked"
     >
       <i class="fa-solid fa-heart"></i>
-    </button>
+    </button> -->
     <img @mouseover="on" @mouseout="off" :src="photo?.imgUrl" alt="" />
     <h2 @mouseover="on" v-show="isHover" class="label">{{ photo.label }}</h2>
     <div v-show="isShow" class="delete-modal">
@@ -64,7 +64,20 @@
       removePhoto() {
         this.$emit('remove', this.photo._id);
       },
-      onLike() {
+      async onLike() {
+        //TODO: like logic here
+        if (!this.like) {
+          //TODO: check if you already have this like
+          let user = this.$store.getters.getUser;
+          if (!user) return console.log('need to log in first');
+          user.likes.push(this.photo._id); //maybe do this in the store or check if its the best way
+          try {
+            await this.$store.dispatch({type: 'updateUser', user});
+            console.log('user updated');
+          } catch (err) {
+            console.log('cannot update user', err);
+          }
+        }
         this.like = !this.like;
       },
     },

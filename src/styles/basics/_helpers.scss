@@ -58,6 +58,9 @@
   cursor: pointer;
 }
 
+// .btns-container{
+// }
+
 .btn-black {
   background-color: white;
   color: black;
@@ -143,31 +146,68 @@
 
 //input search
 .input-search[type='text'] {
-  width: 300px;
+  width: 925px;
   padding: 12px 20px;
   margin: 8px 0;
-  height: 55px;
+  height: 40px;
   box-sizing: border-box;
-  border: 1px solid #bdbdbd;
+  background-color: #eee;
+  // border: 1px solid #bdbdbd;
+  border: none;
   transition: 0.2s;
   outline: none;
-  border-radius: 12px;
+  border-radius: 30px;
   background-image: url('@/assets/new-search.png');
-  background-position: 16px 14px;
-  background-size: 25px;
+  background-position: 16px 12px;
+  background-size: 15px;
   // background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 60px;
-  margin: 10px;
+  padding-left: 44px;
+  // margin: 10px;
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
-  color: #bdbdbd;
+  color: #767676;
+  //color for the fonts #767676
+  @media  screen and (max-width:600px) {
+    width: 186px;
+  }
 }
+// .input-search[type='text'] {
+//   width: 300px;
+//   padding: 12px 20px;
+//   margin: 8px 0;
+//   height: 55px;
+//   box-sizing: border-box;
+//   border: 1px solid #bdbdbd;
+//   transition: 0.2s;
+//   outline: none;
+//   border-radius: 12px;
+//   background-image: url('@/assets/new-search.png');
+//   background-position: 16px 14px;
+//   background-size: 25px;
+//   // background-size: contain;
+//   background-repeat: no-repeat;
+//   padding-left: 60px;
+//   margin: 10px;
+//   font-weight: 500;
+//   font-size: 14px;
+//   line-height: 19px;
+//   color: #bdbdbd;
+//   @media  screen and (max-width:600px) {
+//     width: 186px;
+//   }
+// }
 
 .input-search[type='text']:focus {
-  border: 3px solid #555;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
 }
+
+// .input-search[type='text']:hover {
+//   border: 1px solid #e0e0e0;
+//   // background-color: #ffffff;
+// }
 
 //width
 .w-50prec {
@@ -370,4 +410,8 @@
 //mouse
 .pointer {
   cursor: pointer;
+}
+
+.small-img{
+width: 30%;
 }

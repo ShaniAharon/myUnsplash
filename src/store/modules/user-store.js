@@ -8,11 +8,15 @@ export default {
   getters: {
     getUser(state) {
       console.log('got user', state.loggedinUser);
-      return state.loggedinUser;
+      return JSON.parse(JSON.stringify(state.loggedinUser));
     },
   },
   mutations: {
     setUser(state, {user}) {
+      state.loggedinUser = user;
+    },
+    updateUser(state, {user}) {
+      console.log('update user in store', user);
       state.loggedinUser = user;
     },
   },
@@ -39,6 +43,14 @@ export default {
       try {
         await userService.logout();
         commit({type: 'setUser', user: null});
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    async updateUser({commit}, {user}) {
+      try {
+        const updatedUser = await userService.update(user);
+        commit({type: 'updateUser', user: updatedUser}); //maybe call it updateLoggedinUser
       } catch (err) {
         console.log(err);
       }

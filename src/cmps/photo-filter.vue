@@ -3,7 +3,7 @@
     type="text"
     class="input-search"
     v-model="filterBy.label"
-    placeholder="Search by name"
+    placeholder="Search free high-resolution photos"
     @input="setFilter"
   />
 </template>

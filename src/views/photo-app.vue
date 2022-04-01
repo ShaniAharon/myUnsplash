@@ -2,10 +2,11 @@
   <main class="">
     <header class="header container-layout flex">
       <div class="flex">
-        <img class="logo" src="@/assets/my_unsplash_logo.svg" alt="" />
+        <i class="logo-cam fa-solid fa-camera"></i>
+        <!-- <img class="logo" src="@/assets/my_unsplash_logo.svg" alt="" /> -->
         <photo-filter @setFilter="setFilter" />
         <span v-if="user">
-          Hi {{ user.username }}
+          <!-- Hi {{ user.username }} -->
           <img
             @click="userPage"
             class="avatar"
@@ -14,10 +15,21 @@
           />
         </span>
       </div>
-      <button v-if="!user" class="btn-add" @click="openLogin">Login</button>
-      <button v-if="user" class="btn-add" @click="logout">Logout</button>
-      <button class="btn-add" @click="openUpload">Upload</button>
-      <button class="btn-add" @click="openModal">Add photo</button>
+      <ul class="links clean-list flex">
+        <li>Explore</li>
+        <li>Advertise</li>
+        <li class="flex">Blog <span class="line">|</span></li>
+      </ul>
+      <!-- <div class="btns-container flex"> -->
+      <a v-if="!user" class="" @click="openLogin">Login</a>
+      <button v-if="user" class="logout btn-add" @click="logout">Logout</button>
+      <button class="btn-submit" @click="openUpload">Submit a photo</button>
+      <!-- <span class="hmb">&#9776;</span> -->
+      <div class="hmb">
+        <div></div>
+      </div>
+      <!-- <button class="btn-add" @click="openModal">Add photo</button> -->
+      <!-- </div> -->
     </header>
   </main>
   <!-- login -->

@@ -111,10 +111,17 @@ p {
 a {
   color: $clr1;
 
-  &.active {
-    background-color: $clr1;
-    color: $clr2;
+  // &.active {
+  //   background-color: $clr1;
+  //   color: $clr2;
+  // }
+  &.hover{
+    cursor: pointer;
   }
+}
+a:hover{
+  color: #111;
+  cursor: pointer;
 }
 
 mark {
