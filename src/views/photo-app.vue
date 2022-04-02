@@ -1,5 +1,5 @@
 <template>
-  <main class="">
+  <main class="top-header">
     <header class="header container-layout flex">
       <div class="flex">
         <i class="logo-cam fa-solid fa-camera"></i>
@@ -18,7 +18,8 @@
       <ul class="links clean-list flex">
         <li>Explore</li>
         <li>Advertise</li>
-        <li class="flex">Blog <span class="line">|</span></li>
+        <li>Blog</li>
+        <div class="line-container"><span class="vl"></span></div>
       </ul>
       <!-- <div class="btns-container flex"> -->
       <a v-if="!user" class="" @click="openLogin">Log in</a>
@@ -31,6 +32,20 @@
       <!-- <button class="btn-add" @click="openModal">Add photo</button> -->
       <!-- </div> -->
     </header>
+    <div class="my-list-container container-layout">
+      <ul class="my-list links clean-list flex">
+        <li>
+          <a class="a-link"><span>Editorial</span></a>
+        </li>
+        <div class="line-container"><span class="vl"></span></div>
+        <li>
+          <a class="a-link"><span>Act For Nature</span></a>
+        </li>
+        <li>
+          <a class="a-link"><span>Color of Water</span> </a>
+        </li>
+      </ul>
+    </div>
   </main>
   <!-- login -->
   <login @close="closeLogin" v-if="isLogin" />
@@ -42,6 +57,23 @@
     :photoId="currPhotoId"
     v-if="isDetails"
   />
+  <div class="hero">
+    <img class="hero-img" src="@/assets/hero-of-day.avif" alt="" />
+    <!-- <div class="hero-inner">
+    </div> -->
+    <div class="text-in">
+      <h1 class="title">Unflash</h1>
+      <p>
+        The internet’s source of freely-usable images.<br />
+        Powered by creators everywhere.
+      </p>
+      <input
+        type="text"
+        class="input-search-main"
+        placeholder="Search free high-resolution photos"
+      />
+    </div>
+  </div>
   <section class="container-center">
     <photo-list
       @removed="removePhoto"

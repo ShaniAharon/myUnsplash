@@ -83,6 +83,54 @@ body {
   border-radius: 3px;
   margin: 3px 0;
 }
+
+.a-link{
+  align-items: center;
+    display: flex;
+    font-size: 14px;
+    height: 56px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.my-list  > li  {
+  padding-left: 24px; // maybe calc the  left padding
+}
+
+.my-list-container{
+  position: sticky;
+  // box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
+}
+
+.top-header{
+  position: sticky;
+    top: 0;
+    z-index: 4;
+    background-color: #fff;
+   box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
+
+}
+
+
+.my-list :first-child a{
+  box-shadow: inset 0 -2px #111;
+  color: #111;
+  pointer-events: none;
+}
+.my-list :first-child{
+  padding-left: 0;
+}
+
+.line-container{
+  align-items: center;
+    display: flex;
+}
+
+.vl{
+  // align-items: center;
+ margin-left: 24px;
+ border-left: 1px solid #d7d7d7;
+ height: 30px;
+}
 // .btn-add {
 //   padding: 10px 16px;
 //   margin: 0 11px;
@@ -110,7 +158,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 3px;
-  margin-bottom: 48px;
+  margin-bottom: 2px;
   .links{
     align-items: center;
     display: flex;
@@ -334,6 +382,7 @@ body {
 .masonry {
   columns: 3;
   column-gap: 2rem;
+  max-width: 1320px;
   @media (max-width: 1200px) {
     columns: 3;
   }
@@ -451,4 +500,133 @@ body {
   margin: auto;
   padding-right: 16px;
   font-size: 40px;
+}
+
+
+.hero{
+  position: relative;
+  height: 605px;
+  // background-color: #111;
+    margin-bottom: 48px;
+  //   background: url('@/assets/hero-photo.avif');
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  // backdrop-filter: brightness(60%);
+
+  // background-position: 0px 100px;
+  // height: 100%;
+
+}
+
+.hero-inner{
+  height: 100%;
+  left: 0;
+  // position: absolute;
+  top: 0;
+  width: 100%;
+  // margin-bottom: 48px;
+}
+
+.hero-img{
+  filter: brightness(60%);
+  // height:min-content;
+  // display: block;
+    // height: 605px;
+    max-width:100%;
+    max-height:100%;
+    object-fit: cover;
+    // object-fit: contain;
+    // position: absolute;
+    // left: 0;
+    // // top: 10px;
+    // bottom: 0px;
+    // position: relative;
+  // object-position: right bottom;
+  // clip-path: circle(40%);
+  // object-fit: none; 
+  // object-position: right 45%
+}
+
+.text-in{
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: start;
+  color: #fff;
+  .title{
+    font-size: 46px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+  p{
+    font-size: 18px;
+  }
+}
+
+.input-search-main[type='text'] {
+  width: 860px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 55px;
+  box-sizing: border-box;
+  // background-color: #eee;
+  background-color: #f5f5f5;
+    border-radius: 4px;
+  // border: 1px solid #bdbdbd;
+  border: none;
+  transition: 0.2s;
+  outline: none;
+  // border-radius: 30px;
+  background-image: url('@/assets/new-search.png');
+  background-position: 16px 16px;
+  background-size: 20px;
+  // background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 48px;
+  // margin: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #767676;
+  //color for the fonts #767676
+  @media  screen and (max-width:600px) {
+    width: 186px;
+  }
+}
+
+.input-search-main[type='text']:hover{
+  box-shadow: 0 0 0 5px #0000001a;
+}
+.input-search-main[type='text']:focus{
+  box-shadow: 0 0 0 5px   #0003
+  ;
+}
+
+//test
+.content{
+  -webkit-text-size-adjust: 100%;
+  --width-1: 24rem;
+  --width-2: 32rem;
+  --width-3: 48rem;
+  --width-4: 64rem;
+  --space-1: 4px;
+  --space-2: 12px;
+  --space-3: 36px;
+  --space-4: 72px;
+  font-family: -apple-system,BlinkMacSystemFont,San Francisco,Helvetica Neue,Helvetica,Ubuntu,Roboto,Noto,Segoe UI,Arial,sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #fff;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1320px;
+  padding-left: 12px;
+  padding-right: 12px;
+  position: relative;
+  padding-bottom: 134px;
+  padding-top: 144px;
 }
