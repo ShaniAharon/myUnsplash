@@ -26,8 +26,25 @@
       <button v-if="user" class="logout btn-add" @click="logout">Logout</button>
       <button class="btn-submit" @click="openUpload">Submit a photo</button>
       <!-- <span class="hmb">&#9776;</span> -->
-      <div class="hmb">
-        <div></div>
+      <div class="sec-menu">
+        <div @click="openMenu" class="hmb">
+          <div></div>
+        </div>
+        <div v-if="isMenu" class="open-menu">
+          <div class="menu-board">
+            <div class="spike">
+              <div class="trin"></div>
+              <div class="sec-div-trin"></div>
+            </div>
+            <div class="content-container">
+              <ul class="info-list clean-list">
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- <button class="btn-add" @click="openModal">Add photo</button> -->
       <!-- </div> -->
@@ -138,6 +155,7 @@
         isLogin: false,
         isUpload: false,
         isDetails: false,
+        isMenu: false,
         currPhotoId: '',
       };
     },
@@ -173,6 +191,9 @@
       },
       openLogin() {
         this.isLogin = true;
+      },
+      openMenu() {
+        this.isMenu = !this.isMenu;
       },
       closeLogin() {
         this.isLogin = false;

@@ -26,31 +26,31 @@ body {
 
 .btn-submit {
   font-size: 14px;
-    height: 32px;
-    line-height: 30px;
-    padding: 0 11px;
-    background-color: #fff;
-    border: 1px solid #0000;
-    border-color: #d1d1d1;
-    color: #767676;
-    box-shadow: 0 1px 1px #0000000a;
-    fill: currentColor;
-    border-radius: 4px;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    transition: all .1s ease-in-out;
-    -webkit-user-select: none;
-    user-select: none;
-    white-space: nowrap;
+  height: 32px;
+  line-height: 30px;
+  padding: 0 11px;
+  background-color: #fff;
+  border: 1px solid #0000;
+  border-color: #d1d1d1;
+  color: #767676;
+  box-shadow: 0 1px 1px #0000000a;
+  fill: currentColor;
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+  -webkit-user-select: none;
+  user-select: none;
+  white-space: nowrap;
   cursor: pointer;
 }
 .btn-submit:hover {
-  border-color:  #767676;
+  border-color: #767676;
   color: #111;
 }
 
-.hmb{
+.hmb {
   font-size: 20px;
   font-weight: 500;
 }
@@ -63,11 +63,10 @@ body {
   // position: absolute;
   width: 18px;
   cursor: pointer;
-
 }
 // .hmb:hover{
-  .hmb:before,
-  .hmb:after,
+.hmb:before,
+.hmb:after,
 .hmb div:hover {
   color: #111;
 }
@@ -76,7 +75,7 @@ body {
 .hmb:after,
 .hmb div {
   background: $clr1;
-  content: "";
+  content: '';
   display: block;
   height: 2.5px;
   line-height: 1;
@@ -84,52 +83,50 @@ body {
   margin: 3px 0;
 }
 
-.a-link{
+.a-link {
   align-items: center;
-    display: flex;
-    font-size: 14px;
-    height: 56px;
-    text-decoration: none;
-    white-space: nowrap;
+  display: flex;
+  font-size: 14px;
+  height: 56px;
+  text-decoration: none;
+  white-space: nowrap;
 }
-.my-list  > li  {
+.my-list > li {
   padding-left: 24px; // maybe calc the  left padding
 }
 
-.my-list-container{
+.my-list-container {
   position: sticky;
   // box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
 }
 
-.top-header{
+.top-header {
   position: sticky;
-    top: 0;
-    z-index: 4;
-    background-color: #fff;
-   box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
-
+  top: 0;
+  z-index: 4;
+  background-color: #fff;
+  box-shadow: 0 4px 12px #00000014, 0 0 1px #0100001a;
 }
 
-
-.my-list :first-child a{
+.my-list :first-child a {
   box-shadow: inset 0 -2px #111;
   color: #111;
   pointer-events: none;
 }
-.my-list :first-child{
+.my-list :first-child {
   padding-left: 0;
 }
 
-.line-container{
+.line-container {
   align-items: center;
-    display: flex;
+  display: flex;
 }
 
-.vl{
+.vl {
   // align-items: center;
- margin-left: 24px;
- border-left: 1px solid #d7d7d7;
- height: 30px;
+  margin-left: 24px;
+  border-left: 1px solid #d7d7d7;
+  height: 30px;
 }
 // .btn-add {
 //   padding: 10px 16px;
@@ -159,25 +156,24 @@ body {
   align-items: center;
   margin-top: 3px;
   margin-bottom: 2px;
-  .links{
+  .links {
     align-items: center;
     display: flex;
     padding-left: 20px;
     padding-right: 20px;
-     color: #767676;
-
+    color: #767676;
   }
-  .links >li{
-   margin-inline-end: 5px;
-   margin-inline-start: 15px;
-   font-size: 14px;
+  .links > li {
+    margin-inline-end: 5px;
+    margin-inline-start: 15px;
+    font-size: 14px;
   }
-  .line{
+  .line {
     font-size: 15px;
     margin-left: 17px;
     font-weight: 100;
   }
-  .links :last-child{
+  .links :last-child {
     margin-inline-end: 1px;
   }
 }
@@ -381,7 +377,7 @@ body {
 //grid-responsive-masonry
 .masonry {
   columns: 3;
-  column-gap: 2rem;
+  column-gap: 1.5rem;
   max-width: 1320px;
   @media (max-width: 1200px) {
     columns: 3;
@@ -495,19 +491,18 @@ body {
   padding-right: 32px;
 }
 
-.logo-cam{
+.logo-cam {
   width: fit-content;
   margin: auto;
   padding-right: 16px;
   font-size: 40px;
 }
 
-
-.hero{
+.hero {
   position: relative;
   height: 605px;
   // background-color: #111;
-    margin-bottom: 48px;
+  margin-bottom: 48px;
   //   background: url('@/assets/hero-photo.avif');
   // background-repeat: no-repeat;
   // background-size: 100% 100%;
@@ -515,10 +510,9 @@ body {
 
   // background-position: 0px 100px;
   // height: 100%;
-
 }
 
-.hero-inner{
+.hero-inner {
   height: 100%;
   left: 0;
   // position: absolute;
@@ -527,40 +521,40 @@ body {
   // margin-bottom: 48px;
 }
 
-.hero-img{
+.hero-img {
   filter: brightness(60%);
   // height:min-content;
   // display: block;
-    // height: 605px;
-    max-width:100%;
-    max-height:100%;
-    object-fit: cover;
-    // object-fit: contain;
-    // position: absolute;
-    // left: 0;
-    // // top: 10px;
-    // bottom: 0px;
-    // position: relative;
+  // height: 605px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  // object-fit: contain;
+  // position: absolute;
+  // left: 0;
+  // // top: 10px;
+  // bottom: 0px;
+  // position: relative;
   // object-position: right bottom;
   // clip-path: circle(40%);
-  // object-fit: none; 
+  // object-fit: none;
   // object-position: right 45%
 }
 
-.text-in{
+.text-in {
   position: absolute;
   top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: start;
   color: #fff;
-  .title{
+  .title {
     font-size: 46px;
     line-height: 1.2;
     font-weight: 700;
     letter-spacing: 0.2px;
   }
-  p{
+  p {
     font-size: 18px;
   }
 }
@@ -573,7 +567,7 @@ body {
   box-sizing: border-box;
   // background-color: #eee;
   background-color: #f5f5f5;
-    border-radius: 4px;
+  border-radius: 4px;
   // border: 1px solid #bdbdbd;
   border: none;
   transition: 0.2s;
@@ -591,21 +585,20 @@ body {
   line-height: 19px;
   color: #767676;
   //color for the fonts #767676
-  @media  screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     width: 186px;
   }
 }
 
-.input-search-main[type='text']:hover{
+.input-search-main[type='text']:hover {
   box-shadow: 0 0 0 5px #0000001a;
 }
-.input-search-main[type='text']:focus{
-  box-shadow: 0 0 0 5px   #0003
-  ;
+.input-search-main[type='text']:focus {
+  box-shadow: 0 0 0 5px #0003;
 }
 
 //test
-.content{
+.content {
   -webkit-text-size-adjust: 100%;
   --width-1: 24rem;
   --width-2: 32rem;
@@ -615,7 +608,8 @@ body {
   --space-2: 12px;
   --space-3: 36px;
   --space-4: 72px;
-  font-family: -apple-system,BlinkMacSystemFont,San Francisco,Helvetica Neue,Helvetica,Ubuntu,Roboto,Noto,Segoe UI,Arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue,
+    Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.6;
@@ -629,4 +623,68 @@ body {
   position: relative;
   padding-bottom: 134px;
   padding-top: 144px;
+}
+
+//sec menu when click on hamburger , test need to fix the spike
+.sec-menu {
+  // display: none;
+  .open-menu {
+    position: absolute;
+    inset: 0px 0px auto auto;
+    transform: translate3d(-19.4px, 56px, 0px);
+    z-index: 1;
+
+    .menu-board {
+      transition: transform 200ms cubic-bezier(0.24, 0.22, 0.015, 1.56) 0s,
+        opacity 100ms ease-in-out 0s;
+      .spike {
+        position: absolute;
+        left: 0px;
+        transform: translate3d(248.8px, 0px, 0px);
+        // width: 10px;
+        // height: 10px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+
+        border-bottom: 10px solid rgb(165, 160, 160);
+        // background: aqua;
+        // transform: rotate(134deg);
+        // height: 20%;
+        // border: 1px solid saddlebrown;
+        bottom: calc(100% - 1px);
+        .trin {
+          border-bottom-color: #c1c1c1;
+          top: -1px;
+        }
+        .sec-div-trin {
+          border-bottom-color: rgb(255, 255, 255);
+          border: 8px solid #0000;
+        }
+      }
+      .content-container {
+        border-radius: 4px;
+        box-shadow: 0 8px 16px #00000029;
+        min-width: 135px;
+        border: 1px solid #d1d1d1;
+        width: max-content;
+        background-color: rgb(255, 255, 255);
+
+        .info-list {
+          display: grid;
+          gap: 8px;
+          min-width: 268px;
+          text-align: left;
+          @media (min-width: 950px) {
+            grid-auto-columns: minmax(0, 1fr);
+            grid-auto-flow: column;
+          }
+          @media (min-width: 768px) {
+            padding: 24px 32px 32px;
+          }
+        }
+      }
+    }
+  }
 }
