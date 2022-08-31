@@ -1,6 +1,6 @@
-import {fileURLToPath, URL} from 'url';
+import { fileURLToPath, URL } from 'url';
 
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
@@ -14,5 +14,6 @@ export default defineConfig({
   build: {
     outDir: '../backend/public',
     emptyOutDir: true,
+    chunkSizeWarningLimit: 1500
   },
 });
