@@ -149,7 +149,6 @@
     },
     data() {
       return {
-        // photos: null,
         photoToEdit: photoService.getEmptyPhoto(),
         isShow: false,
         isLogin: false,
@@ -160,7 +159,6 @@
       };
     },
     created() {
-      // this.loadPhotos();
       socketService.on('test addMsg', this.showMsg);
       socketService.on('delete photo', this.deletePhoto);
       socketService.on('add photo', this.addPhoto);
